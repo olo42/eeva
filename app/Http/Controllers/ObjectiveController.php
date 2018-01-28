@@ -25,9 +25,10 @@ class ObjectiveController extends Controller
      */
     public function create(Request $request)
     {
-        $employee = Employee::where('email', $request->email);
+        $employee = Employee::where('email', $request->email)->first();
+        
         if(empty($employee)) {
-            $employee = $this->create_employee($email, $name);
+            $employee = $this->create_employee($request->email, $request->name);
         }
 
         return view('objectives.create', compact('employee'));
@@ -48,9 +49,23 @@ class ObjectiveController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Employee $employee)
     {
-        //
+        $objective = new Objective();
+        
+        $objective->employee_id = $employee->id;
+        $objective->objective = $request->objective;
+        
+        if($request->evaluate == 1) {
+            $objective->evaluation = $request->evaluation;
+            $objective->comment = $request->comment;
+            $objective->mcx_core_values = $request->mcx_core_values;
+            $objective->personal_development = $request->personal_development;
+        }
+        
+        $objective->save();
+
+        return view('objectives.show', compact('objective', 'employee'));
     }
 
     /**
