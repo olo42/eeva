@@ -10,4 +10,9 @@ class Objective extends Model
     {
         return $this->belongsTo('App\Employee');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

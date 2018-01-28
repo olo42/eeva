@@ -53,6 +53,7 @@ class ObjectiveController extends Controller
     {
         $objective = new Objective();
         
+        $objective->user_id = \Auth::user()->id;
         $objective->employee_id = $employee->id;
         $objective->objective = $request->objective;
         
