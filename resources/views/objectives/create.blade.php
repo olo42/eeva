@@ -30,9 +30,9 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="evaluate">
-                                    <label class="form-check-label" for="evaluate">
-                                        Do you want to send a copy of the objectives to the employee?
+                                    <input class="form-check-input" type="checkbox" value="" id="send_objectives">
+                                    <label class="form-check-label" for="send_objectives">
+                                        Do you want to send a copy of the <u>objectives to the employee</u>?
                                     </label>
                                 </div>
                             </div>
@@ -48,6 +48,10 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-12">
+                            @include('objectives._evaluate')    
+                        </div>  
 
                         <div class="form-group">
                             <div class="col-md-2 col-md-offset-10">
