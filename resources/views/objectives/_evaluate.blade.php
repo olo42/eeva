@@ -16,7 +16,7 @@
 <div class="form-group{{ $errors->has('comments') ? ' has-error' : '' }}">
                             
     <label for="comments" class="control-label">Comments</label>   
-    <textarea id="comments" class="form-control" rows="5" name="comments" value="{{ old('comments') }}" required></textarea>
+    <textarea id="comments" class="form-control" rows="5" name="comments" value="{{ old('comments') }}"></textarea>
 
     @if ($errors->has('comments'))
         <span class="help-block">
@@ -35,14 +35,14 @@
                             
     <label for="mcx_core_values">Does this employee exhibit the MCX Core Values of Creativity, Innovation, Transparency, Integrity, Diligence, and Employee Happiness? *</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="mcx_core_values" id="mcx_core_values1" value="1">
-        <label class="form-check-label" for="mcx_core_values1">
+        <input class="form-check-input" type="radio" name="mcx_core_values" id="mcx_core_values_yes" value="yes">
+        <label class="form-check-label" for="mcx_core_values_yes">
             Yes
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="mcx_core_values" id="mcx_core_values0" value="0">
-        <label class="form-check-label" for="mcx_core_values0">
+        <input class="form-check-input" type="radio" name="mcx_core_values" id="mcx_core_values_no" value="no">
+        <label class="form-check-label" for="mcx_core_values_no">
             No
         </label>
     </div>
@@ -53,14 +53,14 @@
                             
     <label for="personal_development">Does this employee exhibit the MCX Core Values of Creativity, Innovation, Transparency, Integrity, Diligence, and Employee Happiness? *</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="personal_development" id="personal_development1" value="1">
-        <label class="form-check-label" for="personal_development1">
+        <input class="form-check-input" type="radio" name="personal_development" id="personal_development1" value="yes">
+        <label class="form-check-label" for="personal_development_yes">
             Yes
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="personal_development" id="personal_development0" value="0">
-        <label class="form-check-label" for="personal_development0">
+        <input class="form-check-input" type="radio" name="personal_development" id="personal_development0" value="no">
+        <label class="form-check-label" for="personal_development_no">
             No
         </label>
     </div>
