@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="evaluate">
+                                    <input class="form-check-input" type="checkbox" value="1" id="evaluate" data-toggle="collapse" data-target="#show_hide">
                                     <label class="form-check-label" for="evaluate">
                                         Do you want to evaluate the objectives now?
                                     </label>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="col-md-12 collapse" id="show_hide">
                             @include('objectives._evaluate')    
                         </div>  
 
