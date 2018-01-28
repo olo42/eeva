@@ -17,10 +17,10 @@ class CreateObjectivesTable extends Migration
             $table->increments('id');
             $table->integer('employee_id');
             $table->text('objective');
-            $table->string('evaluation');
-            $table->text('comment');
-            $table->boolean('mcx_core_values');
-            $table->boolean('personal_development');
+            $table->string('evaluation')->nullable();
+            $table->text('comment')->nullable();
+            $table->string('mcx_core_values')->nullable();
+            $table->string('personal_development')->nullable();
             $table->timestamps();
         });
     }
