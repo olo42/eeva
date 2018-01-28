@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Objective;
+use App\Employee;
 use Illuminate\Http\Request;
 
 class ObjectiveController extends Controller
@@ -22,9 +23,23 @@ class ObjectiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $employee = Employee::where('email', $request->email);
+        if(empty($employee)) {
+            $employee = $this->create_employee($email, $name);
+        }
+
+        return view('objectives.create', compact('employee'));
+    }
+
+    private function create_employee($email, $name)
+    {
+        $employee = new Employee();
+        $employee->email = $email;
+        $employee->name = $name;
+        $employee->save();
+        return $employee;
     }
 
     /**
