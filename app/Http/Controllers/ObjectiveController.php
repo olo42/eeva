@@ -13,9 +13,10 @@ class ObjectiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Employee $employee)
     {
-        //
+        $objectives = $employee->objectives->where('user_id', \Auth::user()->id);
+        dd($objectives);
     }
 
     /**
@@ -31,6 +32,11 @@ class ObjectiveController extends Controller
             $employee = $this->create_employee($request->email, $request->name);
         }
 
+        $last_objective = $employee->objectives->where('user_id', \Auth::user()->id)->where('is_evaluated', '=', 0)->last();
+
+        if(!empty($last_objective)) {
+            return redirect()->action('ObjectiveController@edit', ['employee' => $employee, 'objective' => $last_objective]);
+        }
         return view('objectives.create', compact('employee'));
     }
 
@@ -52,19 +58,14 @@ class ObjectiveController extends Controller
     public function store(Request $request, Employee $employee)
     {
         $objective = new Objective();
-        
         $objective->user_id = \Auth::user()->id;
         $objective->employee_id = $employee->id;
         $objective->objective = $request->objective;
-        
-        if($request->evaluate == 1) {
-            $objective->evaluation = $request->evaluation;
-            $objective->comment = $request->comment;
-            $objective->mcx_core_values = $request->mcx_core_values;
-            $objective->personal_development = $request->personal_development;
-        }
-        
         $objective->save();
+
+        if($request->evaluate == 1) {
+            return redirect()->action('ObjectiveController@edit', ['employee' => $employee, 'objective' => $objective]);
+        }
 
         return view('objectives.show', compact('objective', 'employee'));
     }
@@ -86,9 +87,9 @@ class ObjectiveController extends Controller
      * @param  \App\Objective  $objective
      * @return \Illuminate\Http\Response
      */
-    public function edit(Objective $objective)
+    public function edit(Employee $employee, Objective $objective)
     {
-        //
+        return view('objectives.edit', compact('employee','objective'));
     }
 
     /**
@@ -98,9 +99,16 @@ class ObjectiveController extends Controller
      * @param  \App\Objective  $objective
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Objective $objective)
+    public function update(Request $request, Employee $employee, Objective $objective)
     {
-        //
+        $objective->evaluation = $request->evaluation;
+        $objective->comment = $request->comments;
+        $objective->mcx_core_values = $request->mcx_core_values;
+        $objective->personal_development = $request->personal_development;
+        $objective->is_evaluated = true;
+        $objective->save();
+
+        return view('objectives.show', compact('objective', 'employee'));
     }
 
     /**

@@ -17,13 +17,15 @@
                             
                             <div class="col-md-12">
                                 <label for="objective" class="control-label">Objectives</label>   
-                                <textarea id="objective" class="form-control" rows="5" name="objective" value="{{ old('objective') }}" required></textarea>
+                                <textarea id="objective" class="form-control" rows="5" name="objective" 
+                                    value="{{ old('objective') }}" required></textarea>
 
                                 @if ($errors->has('objective'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('objective') }}</strong>
                                     </span>
                                 @endif
+                                
                             </div>
                         </div>
 
@@ -41,17 +43,14 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="evaluate" data-toggle="collapse" data-target="#show_hide">
+                                    <input class="form-check-input" name="evaluate" type="checkbox" value="1" 
+                                    id="evaluate" data-toggle="collapse" data-target="#show_hide">
                                     <label class="form-check-label" for="evaluate">
                                         Do you want to evaluate the objectives now?
                                     </label>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-12 collapse" id="show_hide">
-                            @include('objectives._evaluate')    
-                        </div>  
+                        </div> 
 
                         <div class="form-group">
                             <div class="col-md-2 col-md-offset-10">
