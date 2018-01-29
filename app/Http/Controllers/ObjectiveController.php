@@ -16,7 +16,8 @@ class ObjectiveController extends Controller
     public function index(Employee $employee)
     {
         $objectives = $employee->objectives->where('user_id', \Auth::user()->id);
-        dd($objectives);
+
+        return view('objectives.index', compact('objectives', 'employee'));
     }
 
     /**
@@ -78,7 +79,8 @@ class ObjectiveController extends Controller
      */
     public function show(Objective $objective)
     {
-        //
+        $employee = $objective->employee;
+        return view('objectives.show', compact('objective', 'employee'));
     }
 
     /**
