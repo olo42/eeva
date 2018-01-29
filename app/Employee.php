@@ -8,6 +8,6 @@ class Employee extends Model
 {
     public function objectives()
     {
-        return $this->hasMany('App\Objective');
+        return $this->hasMany('App\Objective')->orderBy('updated_at', 'desc');
     }
 }
