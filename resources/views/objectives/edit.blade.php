@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     <p>IN A PREVIOUS ONE-ON-ONE MEETING WITH YOUR EMPLOYEE, YOU ESTABLISHED AT LEAST ONE OBJECTIVE 
-                    THAT THE EMPLOYEE WOULD BE RESPONSIBLE FOR ACHIEVING BY THE END OF THE FISCAL YEAR. 
+                    THAT THE EMPLOYEE WOULD BE RESPONSIBLE FOR ACHIEVING BY THE END OF THE EVALUATION PERIOD. 
                     EVALUATE THE OBJECTIVE(S) HERE.</p>
                     <hr />
                     <p><b>Objectives</b><p>   
@@ -28,6 +28,7 @@
                                 <option value="Meets performance requirements">Meets performance requirements</option>
                                 <option value="Exceeds performance requirements">Exceeds performance requirements</option>
                                 <option value="Significantly exceeds performance requirements">Significantly exceeds performance requirements</option>
+                                <option value="Does not apply anymore">Does not apply anymore</option>
                             </select>
                         
                         </div>
@@ -47,12 +48,12 @@
                         
                         <div class="form-group">
                             <hr>
-                            <p>IN ADDITION TO THE OBJECTIVE(S) OUTLINED ABOVE, MCX EMPLOYEES ARE EXPECTED TO EXHIBIT THE MCX CORE VALUES AND DEMONSTRATE A COMMITMENT TO PERSONAL DEVELOPMENT.</p>
+                            <p>IN ADDITION TO THE OBJECTIVE(S) OUTLINED ABOVE, MARITZCX EMPLOYEES ARE EXPECTED TO EXHIBIT THE MARITZCX CORE VALUES AND DEMONSTRATE A COMMITMENT TO PERSONAL DEVELOPMENT.</p>
                         </div>
                         
                         <div class="form-group{{ $errors->has('mcx_core_values') ? ' has-error' : '' }}">
                                                     
-                            <label for="mcx_core_values">Does this employee exhibit the MCX Core Values of Creativity, Innovation, Transparency, Integrity, Diligence, and Employee Happiness?</label>
+                            <label for="mcx_core_values">Does this employee exhibit the MaritzCX Core Values?</label>
                             <div class="form-check" required>
                                 <input class="form-check-input" type="radio" name="mcx_core_values" id="mcx_core_values_yes" value="yes">
                                 <label class="form-check-label" for="mcx_core_values_yes">
