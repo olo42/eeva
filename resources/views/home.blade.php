@@ -51,12 +51,12 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-5">
-                                <a href="#" class="btn btn-default" style="visibility: hidden">
+                            <div class="col-md-8 col-md-offset-4">
+                                <a href="#" class="btn btn-default" id="show_older" style="visibility: hidden">
                                     Show older objectives
                                 </a>
                                 <button type="submit" class="btn btn-primary">
-                                    Add objectives
+                                    Add objectives / evaluate
                                 </button>
                             </div>
                         </div>
@@ -97,8 +97,11 @@ var $input = $(".typeahead");
         },
 	    autoSelect: true,
         afterSelect: function(item){
+            var id = item.id;
             console.log(item);
             $("#name").val(item.origin_name);
+            $("#show_older").css('visibility', 'visible');
+            $("#show_older").attr('href', "/objectives/" + item.id + "/index");
         }
 	});
 @endsection
