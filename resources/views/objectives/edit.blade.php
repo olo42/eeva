@@ -10,25 +10,13 @@
                 <div class="panel-body">
                     <p>IN A PREVIOUS ONE-ON-ONE MEETING WITH YOUR EMPLOYEE, YOU ESTABLISHED AT LEAST ONE OBJECTIVE 
                     THAT THE EMPLOYEE WOULD BE RESPONSIBLE FOR ACHIEVING BY THE END OF THE FISCAL YEAR. 
-                    DESCRIBE AND EVALUATE THE OBJECTIVE(S) HERE.</p>
+                    EVALUATE THE OBJECTIVE(S) HERE.</p>
+                    <hr />
+                    <p><b>Objectives</b><p>   
+                    <p>{{ $objective->objective }}</p> 
+                    <hr /> 
                     <form class="form-horizontal" method="POST" action="{{ action('ObjectiveController@update', [$employee, $objective]) }}">
                         {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('objective') ? ' has-error' : '' }}">
-                            
-                            <div class="col-md-12">
-                                <label for="objective" class="control-label">Objectives</label>   
-                                <textarea id="objective" class="form-control" rows="5" name="objective" 
-                                    value="{{ old('objective') }}" required readonly="readonly">{{ $objective->objective }}</textarea>
-
-                                @if ($errors->has('objective'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('objective') }}</strong>
-                                    </span>
-                                @endif
-                                
-                            </div>
-                        </div>
-
                         <div class="col-md-12">
                         <div class="form-group{{ $errors->has('evaluation') ? ' has-error' : '' }}">
                             
