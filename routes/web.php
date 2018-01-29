@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -28,3 +28,5 @@ Route::get('/objectives/{employee}/{objective}/show', 'ObjectiveController@show'
 Route::get('/objectives/{employee}/{objective}/edit', 'ObjectiveController@edit')->name('objectives.edit');
 
 Route::post('/objectives/{employee}/{objective}/update', 'ObjectiveController@update')->name('objectives.update');
+
+Route::get('/employees/get', 'EmployeeController@get')->name('employees.get');
