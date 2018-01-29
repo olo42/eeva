@@ -13,7 +13,7 @@
                         <div class="col-md-3">Date</div> <div class="col-md-3"><b>{{ $objective->updated_at }}</b></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">Objective(s)</div> <div class="col-md-9">{{ $objective->objective }}</div>
+                        <div class="col-md-3"><br />Objective(s)</div> <div class="col-md-9"><br />{{ $objective->objective }}</div>
                     </div>
                     @if($objective->is_evaluated == false)
                     <div class="row">
