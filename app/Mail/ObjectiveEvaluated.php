@@ -9,10 +9,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\Objective;
 
-class ObjectiveAdded extends Mailable
+class ObjectiveEvaluated extends Mailable
 {
     use Queueable, SerializesModels;
-    
 
     protected $objective;
     protected $manager;
@@ -34,12 +33,16 @@ class ObjectiveAdded extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.new')->with([
+        return $this->view('mail.evaluated')->with([
                         'objectiveId' => $this->objective->id,
                         'objectiveEmployee' => $this->objective->employee->name,
                         'objectiveText' => $this->objective->objective,
                         'objectiveDate' => $this->objective->updated_at,
-                        'manager' => $this->manager])
-                    ->subject('PX: New objective(s) added');
+                        'manager' => $this->manager,
+                        'evaluation' => $this->objective->evaluation,
+                        'evaluationComment' => $this->objective->comment,
+                        'mcxCoreValues' => $this->objective->mcx_core_values,
+                        'personalCommitment' => $this->objective->personal_development])
+                    ->subject('PX: Objective(s) evaluated');
     }
 }

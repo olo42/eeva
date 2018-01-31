@@ -7,6 +7,7 @@ use App\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ObjectiveAdded;
+use App\Mail\ObjectiveEvaluated;
 
 
 class ObjectiveController extends Controller
@@ -118,6 +119,12 @@ class ObjectiveController extends Controller
         $objective->personal_development = $request->personal_development;
         $objective->is_evaluated = true;
         $objective->save();
+
+        $recipients = array(\Auth::user()->email);
+        if($request->send_evaluation_to_employee == "yes"){
+            array_push($recipients,$employee->email);
+        }
+        Mail::to($recipients)->cc("HRinfo@maritzcx.com")->send(new ObjectiveEvaluated($objective));
 
         return view('objectives.show', compact('objective', 'employee'));
     }

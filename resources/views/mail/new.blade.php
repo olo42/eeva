@@ -1,10 +1,12 @@
 Hi,
 
-<p>The following objective(s) have been added for {{ $objectiveEmployee }}</p>
+<p>The following objective(s) have been added:</p>
 
-<p>Id: {{ $objectiveId }}</p>
+<p>Employee: {{ $objectiveEmployee }}</p>
 
-<p><b>Objective(s)s:</b><br />{{ $objectiveText }}</p>
+<p>Objective Id: {{ $objectiveId }}</p>
+
+<p><b>Objective(s):</b><br />{{ $objectiveText }}</p>
 
 <p>Added by {{ $manager }}, {{ $objectiveDate }}</p>
 
