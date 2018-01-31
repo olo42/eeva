@@ -89,7 +89,7 @@
                         
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="send_objectives">
+                                <input class="form-check-input" type="checkbox" name="send_evaluation_to_employee" value="yes" id="send_evaluation">
                                 <label class="form-check-label" for="send_objectives">
                                     Do you want to send a copy of the <u>evaluation to the employee</u>?
                                 </label>
@@ -99,7 +99,7 @@
 
                         <div class="form-group">
                             <div class="col-md-2 col-md-offset-10">
-                                <a href="#" class="btn btn-default">
+                                <a href="/home" class="btn btn-default">
                                     Cancel
                                 </a>
                                 <button type="submit" class="btn btn-primary">
