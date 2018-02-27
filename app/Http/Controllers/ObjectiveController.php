@@ -72,7 +72,8 @@ class ObjectiveController extends Controller
         if($request->send_objectives_to_employee == "yes"){
             array_push($recipients,$employee->email);
         }
-        Mail::to($recipients)->cc("HRinfo@maritzcx.com")->send(new ObjectiveAdded($objective));
+        // Mail::to($recipients)->cc("HRinfo@maritzcx.com")->send(new ObjectiveAdded($objective));
+        Mail::to($recipients)->cc("karel.mette@maritzcx.com")->send(new ObjectiveAdded($objective));
 
         if($request->evaluate == 1) {
             return redirect()->action('ObjectiveController@edit', ['employee' => $employee, 'objective' => $objective]);
@@ -124,7 +125,8 @@ class ObjectiveController extends Controller
         if($request->send_evaluation_to_employee == "yes"){
             array_push($recipients,$employee->email);
         }
-        Mail::to($recipients)->cc("HRinfo@maritzcx.com")->send(new ObjectiveEvaluated($objective));
+        // Mail::to($recipients)->cc("HRinfo@maritzcx.com")->send(new ObjectiveEvaluated($objective));
+        Mail::to($recipients)->cc("karel.mette@maritzcx.com")->send(new ObjectiveEvaluated($objective));
 
         return view('objectives.show', compact('objective', 'employee'));
     }
