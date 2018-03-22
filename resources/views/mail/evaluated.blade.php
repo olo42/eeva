@@ -22,6 +22,12 @@ Hi,
 <p>Does this employee demonstrate a commitment to their Personal Development?
 <br />{{ $personalCommitment }}</p>
 
+<p><b>Career Aspiration Discussion Summary</b>
+<br />{{ $careerAspiration }}</p>
+
+<p><b>Training Wants & Needs</b>
+<br />{{ $training }}</p>
+
 <p>Evaluated by {{ $manager }}, {{ $objectiveDate }}</p>
 
 Thanks!

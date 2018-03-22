@@ -42,7 +42,9 @@ class ObjectiveEvaluated extends Mailable
                         'evaluation' => $this->objective->evaluation,
                         'evaluationComment' => $this->objective->comment,
                         'mcxCoreValues' => $this->objective->mcx_core_values,
-                        'personalCommitment' => $this->objective->personal_development])
+                        'personalCommitment' => $this->objective->personal_development,
+                        'careerAspiration' => $this->objective->career_aspiration,
+                        'training' => $this->objective->training])
                     ->subject('PX: Objective(s) evaluated');
     }
 }

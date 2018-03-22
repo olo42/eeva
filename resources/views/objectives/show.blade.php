@@ -41,6 +41,12 @@
                     <div class="row">
                         <div class="col-md-3">Demonstrates commitment</div> <div class="col-md-9"><b>{{ $objective->personal_development }}</b></div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-3">Career Aspiration Discussion Summary</div> <div class="col-md-9">{{ $objective->career_aspiration }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Training Wants &amp; Needs</div> <div class="col-md-9">{{ $objective->training }}</div>
+                    </div>
                     @endif
                     <div class="row">
                     <div class="col-md-2 col-md-offset-9"><br /><a href="/home" class="btn btn-primary">Evaluate another employee</a></div>

@@ -86,6 +86,32 @@
                             </div>
                             
                         </div>
+
+                        <div class="form-group{{ $errors->has('career_aspiration') ? ' has-error' : '' }}">
+                                                    
+                            <label for="career_aspiration" class="control-label">Career Aspiration Discussion Summary</label>   
+                            <textarea id="career_aspiration" class="form-control" rows="5" name="career_aspiration" value="{{ old('career_aspiration') }}" required></textarea>
+                        
+                            @if ($errors->has('career_aspiration'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('career_aspiration') }}</strong>
+                                </span>
+                            @endif
+                        
+                        </div>
+
+                        <div class="form-group{{ $errors->has('training') ? ' has-error' : '' }}">
+                                                    
+                            <label for="training" class="control-label">Training Wants &amp; Needs</label>   
+                            <textarea id="training" class="form-control" rows="5" name="training" value="{{ old('training') }}" required></textarea>
+                        
+                            @if ($errors->has('training'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('training') }}</strong>
+                                </span>
+                            @endif
+                        
+                        </div>
                         
                         <div class="form-group">
                             <div class="form-check">

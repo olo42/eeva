@@ -118,6 +118,8 @@ class ObjectiveController extends Controller
         $objective->comment = $request->comments;
         $objective->mcx_core_values = $request->mcx_core_values;
         $objective->personal_development = $request->personal_development;
+        $objective->career_aspiration = $request->career_aspiration;
+        $objective->training = $request->training;
         $objective->is_evaluated = true;
         $objective->save();
 
